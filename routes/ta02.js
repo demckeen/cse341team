@@ -12,6 +12,7 @@ router.post('/addUser', (req, res, next) => {
 
 router.post('/removeUser', (req, res, next) => {
   console.log(req.body.username);
+  let username = req.body.username;
 
   const index = users.indexOf(username);
   if (index !== -1) {

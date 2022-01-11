@@ -21,10 +21,10 @@
         <input type="submit" value="Submit">
       </form>
 
-      <form action="/ta02/removeUser" method="POST">
+      <form id="removeForm" action="/ta02/removeUser" method="POST">
         <label for="username">Remove Username:</label>
         <% if (users.length > 0) { console.log(users)%>
-          <select class="userlist" name="username">
+          <select form="removeForm" class="userlist" name="username" id="username">
               <% for (let user of users) { console.log(user) %>
                   <option class="user" value="<%= user %>"><%= user %></option>
               <% } %>
