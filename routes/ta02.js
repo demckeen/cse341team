@@ -4,9 +4,17 @@ const express = require('express');
 const router = express.Router();
 
 const users = ['beep','bop','boop'];
+let error = '';
 
 router.post('/addUser', (req, res, next) => {
-  users.push(req.body.username);
+  let username = req.body.username;
+  error = '';
+
+  if(users.includes(username)) {
+    error ='Username already exists';
+  }
+  else {
+  users.push(req.body.username);}
   res.redirect('/ta02');
 });
 
@@ -27,6 +35,7 @@ router.get('/', (req, res, next) => {
     title: 'Team Activity 02',
     path: '/ta02', // For pug, EJS
     users: users,
+    error: error,
     activeTA03: true, // For HBS
     contentCSS: true, // For HBS
   });

@@ -41,3 +41,6 @@
   width: 5rem;
   height: 5rem;
 }
+
+.errors {color: red;
+  font-style: italic;}
